@@ -1,8 +1,8 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, wait } from "@testing-library/react";
 import BubblePage from "./BubblePage";
 
-import {getData as mockGetData} from './../api/getData';
+import { getData as mockGetData } from './../api/getData';
 jest.mock('./../api/getData');
 
 
@@ -27,4 +27,5 @@ test("Fetches data and renders the bubbles", async () => {
     ]
   });
 
+  await wait();
 });
