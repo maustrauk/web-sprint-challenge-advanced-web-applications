@@ -8,7 +8,7 @@ const initialColor = {
 
 const ColorList = props => {
 
-  const { colors, updateColors, rerender, setRerender } = props;
+  const { colors, rerender, setRerender } = props;
 
   console.log(colors);
   const [editing, setEditing] = useState(false);

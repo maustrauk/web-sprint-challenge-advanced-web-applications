@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Login from "./components/Login";
+import Login from "./forms/Login";
 import BubblePage from './components/BubblePage';
 import PrivateRoute from './components/PrivateRoute';
 
