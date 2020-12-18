@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import getData from './../api/getData';
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 
 const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
-  // fetch your colors data from the server when the component mounts
-  // set that data to the colorList state property
+  const [rerender, setRerender] = useState(false);
+  
+  useEffect(() => {
+    getData(setColorList);
+  },[rerender]);
 
   return (
     <>
-      <ColorList colors={colorList} updateColors={setColorList} />
+      <ColorList colors={colorList} updateColors={setColorList} rerender={rerender} setRerender={setRerender}/>
       <Bubbles colors={colorList} />
     </>
   );
