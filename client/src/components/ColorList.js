@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { axiosWithAuth } from './../utils/axiosWithAuth';
 
 import EditColorForm from './../forms/EditColorForm';
+import AddColorForm from './../forms/AddColorForm';
 
 const initialColor = {
   color: "",
@@ -14,13 +15,20 @@ const ColorList = props => {
 
   console.log(colors);
   const [editing, setEditing] = useState(false);
+  const [adding, setAdding] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  const [newColor, setNewColor] = useState(initialColor);
 
  
   const editColor = color => {
     setEditing(true);
     setColorToEdit(color);
   };
+
+  const addColor = () => {
+    setAdding(true);
+    setColorToEdit(initialColor);
+  }
 
   const saveEdit = e => {
     e.preventDefault();
@@ -46,6 +54,19 @@ const ColorList = props => {
     })
   };
 
+  const saveAdd = e => {
+    e.preventDefault();
+    axiosWithAuth()
+    .post(`/colors`,newColor)
+    .then(res => {
+      setAdding(false);
+      setRerender(!rerender);
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div className="colors-wrap">
       <p>colors</p>
@@ -69,11 +90,14 @@ const ColorList = props => {
           </li>
         ))}
       </ul>
+      <button onClick={() => addColor()}>+</button>
       {editing && (
         <EditColorForm saveEdit={saveEdit} setColorToEdit={setColorToEdit} colorToEdit={colorToEdit} setEditing={setEditing}/>
       )}
+      {adding && (
+        <AddColorForm setAdding={setAdding} newColor={newColor} setNewColor={setNewColor} saveAdd={saveAdd}/>
+      )}
       <div className="spacer" />
-      {/* stretch - build another form here to add a color */}
     </div>
   );
 };

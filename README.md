@@ -97,7 +97,7 @@ In your solution, it is essential that you follow best practices and produce cle
 
 After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
 
-* [ ] Build out another form to add a new color to your color list
+* [*] Build out another form to add a new color to your color list
 * [ ] Build a custom hook called `useApi` that you can use to make all of your API calls
 * [ ] Add more tests to give you further confidence in the code you're shipping
 

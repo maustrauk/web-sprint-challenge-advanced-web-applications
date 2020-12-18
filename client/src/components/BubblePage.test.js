@@ -5,6 +5,10 @@ import BubblePage from "./BubblePage";
 import { getData as mockGetData } from './../api/getData';
 jest.mock('./../api/getData');
 
+const myFunc = (data) => {
+  return data;
+}
+
 
 test("Fetches data and renders the bubbles", async () => {
   render(<BubblePage/>);
