@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditColorForm = props => {
+const AddColorForm = props => {
 
     const {saveAdd, setNewColor, newColor,  setAdding} =props;
 
@@ -36,4 +36,4 @@ const EditColorForm = props => {
     </div>)
 };
 
-export default EditColorForm;
+export default AddColorForm;
